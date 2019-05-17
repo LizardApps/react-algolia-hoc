@@ -131,12 +131,15 @@ export const withAlgolia = ({
 
       loadMore = () => this.setState({ pending: true }, this.doSearch)
 
+      refresh = () => this.setState({ pending: true, nextPage: 0 }, this.doSearch)
+
       render() {
         return (
           <C
             {...this.props}
             {...this.state}
             loadMore={this.loadMore}
+            refresh={this.refresh}
             onQueryChange={this.onQueryChange}
             onFiltersChange={this.onFiltersChange}
           />
